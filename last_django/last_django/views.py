@@ -1,4 +1,8 @@
-from django.http import HttpResponse
+from django.shortcuts import render
+from .forms import LastForm
 
-def hello_geeks(request):
-    return HttpResponse("Hello Geeks")
+# Create your views here.
+def home_view(request):
+    context ={}
+    context['form']= LastForm()
+    return render(request, "home.html", context)
